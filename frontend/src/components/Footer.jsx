@@ -18,32 +18,32 @@ const LinkedinIcon = ({ size = 14, className = "" }) => (
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0d1117] border-t border-[#30363d] font-mono text-xs text-[#8b949e]">
+    <footer className="bg-ide-bg border-t border-ide-border font-mono text-xs text-syntax-comment">
       <div className="flex flex-col md:flex-row justify-between items-center px-4 py-2">
         <div className="flex items-center space-x-4 mb-2 md:mb-0">
-          <div className="flex items-center hover:text-[#c9d1d9] transition-colors cursor-pointer">
+          <div className="flex items-center hover:text-on-background transition-colors cursor-pointer">
             <GitBranch size={14} className="mr-1" />
             <span>main*</span>
           </div>
-          <div className="flex items-center hover:text-[#c9d1d9] transition-colors cursor-pointer">
+          <div className="flex items-center hover:text-on-background transition-colors cursor-pointer">
             <CheckCircle2 size={14} className="mr-1" />
             <span>0 errors, 0 warnings</span>
           </div>
-          <div className="hidden sm:flex items-center text-[#ff7b72]">
+          <div className="hidden sm:flex items-center text-syntax-keyword">
             <span>admin@nuruzzaman</span>
           </div>
         </div>
 
         <div className="flex items-center space-x-6">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-[#c9d1d9] transition-colors">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-on-background transition-colors">
             <GithubIcon size={14} className="mr-1" />
             <span>GitHub</span>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-[#c9d1d9] transition-colors">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-on-background transition-colors">
             <LinkedinIcon size={14} className="mr-1" />
             <span>LinkedIn</span>
           </a>
-          <a href="mailto:hello@example.com" className="flex items-center hover:text-[#c9d1d9] transition-colors">
+          <a href="mailto:hello@example.com" className="flex items-center hover:text-on-background transition-colors">
             <Mail size={14} className="mr-1" />
             <span>Contact</span>
           </a>
@@ -52,7 +52,7 @@ const Footer = () => {
         <div className="flex items-center space-x-4 mt-2 md:mt-0">
           <div className="hidden md:block">UTF-8</div>
           <div className="hidden md:block">CRLF</div>
-          <div className="flex items-center text-[#7ee787]">
+          <div className="flex items-center text-syntax-string-green">
             <Wifi size={14} className="mr-1" />
             <span>Online</span>
           </div>

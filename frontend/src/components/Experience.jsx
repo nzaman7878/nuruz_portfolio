@@ -24,13 +24,13 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 border-t border-white/5">
+    <section id="experience" className="py-24 border-t border-ide-border">
       <div className="mb-16">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Journey</h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-on-background mb-4">Journey</h2>
+        <div className="w-20 h-1 bg-syntax-keyword rounded-full"></div>
       </div>
       
-      <div className="relative border-l-2 border-white/10 ml-4 md:ml-6">
+      <div className="relative border-l-2 border-ide-border ml-4 md:ml-6">
         {experiences.map((exp, idx) => (
           <motion.div 
             key={idx}
@@ -40,15 +40,15 @@ const Experience = () => {
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             className="mb-10 ml-8 relative"
           >
-            <span className="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-background border-2 border-primary shadow-[0_0_10px_rgba(139,92,246,0.5)]"></span>
+            <span className="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-ide-bg border-2 border-syntax-variable shadow-none"></span>
             
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_30px_rgba(139,92,246,0.05)] hover:border-white/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.1)] transition-all p-6 inline-block w-full max-w-2xl">
+            <div className="bg-ide-surface backdrop-blur-xl border border-ide-border rounded-2xl shadow-md hover:border-syntax-variable hover:shadow-lg hover:border-syntax-variable transition-all p-6 inline-block w-full max-w-2xl">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                <span className="text-primary font-mono text-sm mt-1 md:mt-0">{exp.duration}</span>
+                <h3 className="text-xl font-bold text-on-background">{exp.role}</h3>
+                <span className="text-syntax-variable font-mono text-sm mt-1 md:mt-0">{exp.duration}</span>
               </div>
-              <h4 className="text-secondary font-medium mb-4">{exp.company}</h4>
-              <p className="text-on-surface-variant text-sm leading-relaxed">{exp.description}</p>
+              <h4 className="text-syntax-string font-medium mb-4">{exp.company}</h4>
+              <p className="text-syntax-comment text-sm leading-relaxed">{exp.description}</p>
             </div>
           </motion.div>
         ))}

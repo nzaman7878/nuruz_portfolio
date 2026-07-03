@@ -7,7 +7,7 @@ import ProjectsPage from './pages/ProjectsPage';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-ide-bg text-on-background font-mono">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

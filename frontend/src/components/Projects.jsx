@@ -70,7 +70,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 relative bg-[#0d1117] font-mono overflow-hidden">
+    <section id="projects" className="py-24 relative bg-ide-bg font-mono overflow-hidden">
       
       <div className="container mx-auto px-5 lg:px-20 max-w-[1400px] relative z-10">
         
@@ -78,10 +78,10 @@ const Projects = () => {
         <div className="w-full mb-12 flex flex-col items-center text-center">
           <div className="flex items-center space-x-2 mb-4">
             <span className="text-[#a855f7] font-bold text-xl">ls</span>
-            <span className="text-[#c9d1d9] text-xl">-la</span>
-            <span className="text-[#a5d6ff] text-xl">./projects</span>
+            <span className="text-on-background text-xl">-la</span>
+            <span className="text-syntax-string text-xl">./projects</span>
           </div>
-          <p className="text-[#8b949e] text-sm max-w-2xl">
+          <p className="text-syntax-comment text-sm max-w-2xl">
             // A selection of my recent full-stack applications and AI-integrated platforms.
           </p>
         </div>
@@ -94,22 +94,22 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="ide-window flex flex-col group border border-[#30363d] hover:border-[#79c0ff] transition-colors duration-500"
+              className="ide-window flex flex-col group border border-ide-border hover:border-[#79c0ff] transition-colors duration-500"
             >
               {/* Tab Header */}
-              <div className="ide-header flex justify-between px-4 py-2 bg-[#161b22] border-b border-[#30363d]">
-                <div className="flex items-center text-[#8b949e] text-xs font-mono">
-                  <FileCode size={14} className="mr-2 text-[#79c0ff]" />
+              <div className="ide-header flex justify-between px-4 py-2 bg-ide-surface border-b border-ide-border">
+                <div className="flex items-center text-syntax-comment text-xs font-mono">
+                  <FileCode size={14} className="mr-2 text-syntax-variable" />
                   <span>{project.fileName}</span>
                 </div>
                 <div className="flex space-x-1">
-                  <span className="w-2 h-2 rounded-full bg-[#30363d] group-hover:bg-[#ffbd2e] transition-colors"></span>
+                  <span className="w-2 h-2 rounded-full bg-[#30363d] group-hover:bg-yellow-400 transition-colors"></span>
                 </div>
               </div>
               
               {/* Image Header with Terminal Overlay */}
               <div className="w-full h-48 relative overflow-hidden bg-[#050505]">
-                <div className="absolute inset-0 bg-[#0d1117]/60 mix-blend-multiply z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                <div className="absolute inset-0 bg-ide-bg/60 mix-blend-multiply z-10 group-hover:bg-transparent transition-colors duration-500"></div>
                 {/* Scanline effect */}
                 <div className="absolute inset-0 z-20 pointer-events-none" style={{ background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.2) 2px, rgba(0,0,0,0.2) 4px)' }}></div>
                 
@@ -121,43 +121,43 @@ const Projects = () => {
                 
                 {/* Floating Tags */}
                 <div className="absolute top-4 left-4 z-30 flex gap-2">
-                  <span className="bg-[#161b22]/90 backdrop-blur-md px-2 py-1 rounded text-[10px] font-mono text-[#c9d1d9] border border-[#30363d]">
+                  <span className="bg-ide-surface/90 backdrop-blur-md px-2 py-1 rounded text-[10px] font-mono text-on-background border border-ide-border">
                     {project.tag}
                   </span>
                 </div>
               </div>
               
               {/* Content Body */}
-              <div className="p-6 flex flex-col flex-1 bg-[#0d1117]">
-                <h3 className="text-lg font-bold text-[#c9d1d9] mb-2 group-hover:text-[#79c0ff] transition-colors">
+              <div className="p-6 flex flex-col flex-1 bg-ide-bg">
+                <h3 className="text-lg font-bold text-on-background mb-2 group-hover:text-syntax-variable transition-colors">
                   {project.title}
                 </h3>
                 <div className="mb-4">
-                  <p className="text-[#8b949e] font-sans leading-relaxed text-sm h-16 overflow-hidden">
+                  <p className="text-syntax-comment font-sans leading-relaxed text-sm h-16 overflow-hidden">
                     {project.description}
                   </p>
                 </div>
                 
-                <div className="pt-4 border-t border-[#30363d] flex flex-col gap-4 mt-auto">
+                <div className="pt-4 border-t border-ide-border flex flex-col gap-4 mt-auto">
                   
                   {/* Tech Stack Array */}
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-[#ff7b72] text-xs">const</span> 
-                    <span className="text-[#c9d1d9] text-xs">stack = [</span>
+                    <span className="text-syntax-keyword text-xs">const</span> 
+                    <span className="text-on-background text-xs">stack = [</span>
                     {project.tech.split(',').map((tech, i, arr) => (
                       <React.Fragment key={tech}>
-                        <span className="text-[#a5d6ff] text-xs">'{tech.trim()}'</span>
-                        {i < arr.length - 1 && <span className="text-[#c9d1d9] text-xs">, </span>}
+                        <span className="text-syntax-string text-xs">'{tech.trim()}'</span>
+                        {i < arr.length - 1 && <span className="text-on-background text-xs">, </span>}
                       </React.Fragment>
                     ))}
-                    <span className="text-[#c9d1d9] text-xs">];</span>
+                    <span className="text-on-background text-xs">];</span>
                   </div>
 
-                  <div className="flex justify-end space-x-3 text-[#8b949e]">
-                    <a href="#" className="hover:text-[#c9d1d9] transition-colors" title="View Source">
+                  <div className="flex justify-end space-x-3 text-syntax-comment">
+                    <a href="#" className="hover:text-on-background transition-colors" title="View Source">
                       <GithubIcon size={16} />
                     </a>
-                    <a href="#" className="hover:text-[#79c0ff] transition-colors" title="Live Preview">
+                    <a href="#" className="hover:text-syntax-variable transition-colors" title="Live Preview">
                       <ExternalLink size={16} />
                     </a>
                   </div>

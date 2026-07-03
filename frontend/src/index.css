@@ -1,24 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Modern IDE Dark Theme */
-  --color-ide-bg: #0d1117; /* GitHub Dark / VS Code Dark background */
-  --color-ide-surface: #161b22;
-  --color-ide-panel: #21262d;
-  --color-ide-border: #30363d;
+  /* Dynamic Theme Variables mapped from root */
+  --color-ide-bg: var(--theme-ide-bg);
+  --color-ide-surface: var(--theme-ide-surface);
+  --color-ide-panel: var(--theme-ide-panel);
+  --color-ide-border: var(--theme-ide-border);
   
-  /* Syntax Highlighting Colors */
-  --color-syntax-keyword: #ff7b72; /* Red/Pink */
-  --color-syntax-function: #d2a8ff; /* Purple */
-  --color-syntax-string: #a5d6ff; /* Light Blue */
-  --color-syntax-string-green: #7ee787; /* Green strings */
-  --color-syntax-variable: #79c0ff; /* Cyan/Blue */
-  --color-syntax-comment: #8b949e; /* Grey */
-  --color-syntax-constant: #f2cc60; /* Yellow */
-  --color-syntax-operator: #c9d1d9; /* White/Light Grey */
+  --color-syntax-keyword: var(--theme-syntax-keyword);
+  --color-syntax-function: var(--theme-syntax-function);
+  --color-syntax-string: var(--theme-syntax-string);
+  --color-syntax-string-green: var(--theme-syntax-string-green);
+  --color-syntax-variable: var(--theme-syntax-variable);
+  --color-syntax-comment: var(--theme-syntax-comment);
+  --color-syntax-constant: var(--theme-syntax-constant);
+  --color-syntax-operator: var(--theme-syntax-operator);
   
-  --color-on-background: #c9d1d9;
-  --color-on-surface: #f0f6fc;
+  --color-on-background: var(--theme-on-background);
+  --color-on-surface: var(--theme-on-surface);
 
   --font-sans: "Inter", sans-serif;
   --font-display: "Plus Jakarta Sans", sans-serif;
@@ -26,11 +25,52 @@
 }
 
 @layer base {
+  :root {
+    /* Dark Theme (Default) */
+    --theme-ide-bg: #0d1117;
+    --theme-ide-surface: #161b22;
+    --theme-ide-panel: #21262d;
+    --theme-ide-border: #30363d;
+    
+    --theme-syntax-keyword: #ff7b72;
+    --theme-syntax-function: #d2a8ff;
+    --theme-syntax-string: #a5d6ff;
+    --theme-syntax-string-green: #7ee787;
+    --theme-syntax-variable: #79c0ff;
+    --theme-syntax-comment: #8b949e;
+    --theme-syntax-constant: #f2cc60;
+    --theme-syntax-operator: #c9d1d9;
+    
+    --theme-on-background: #c9d1d9;
+    --theme-on-surface: #f0f6fc;
+  }
+
+  .light {
+    /* Light Theme (GitHub Light) */
+    --theme-ide-bg: #ffffff;
+    --theme-ide-surface: #f6f8fa;
+    --theme-ide-panel: #eaeef2;
+    --theme-ide-border: #d0d7de;
+    
+    --theme-syntax-keyword: #d73a49;
+    --theme-syntax-function: #6f42c1;
+    --theme-syntax-string: #032f62;
+    --theme-syntax-string-green: #22863a;
+    --theme-syntax-variable: #005cc5;
+    --theme-syntax-comment: #6a737d;
+    --theme-syntax-constant: #e36209;
+    --theme-syntax-operator: #24292e;
+    
+    --theme-on-background: #24292e;
+    --theme-on-surface: #24292e;
+  }
+
   body {
     background-color: var(--color-ide-bg);
     color: var(--color-on-background);
     font-family: var(--font-mono); /* Default to mono for the terminal feel */
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Custom terminal scrollbar */

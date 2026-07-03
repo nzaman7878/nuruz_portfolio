@@ -11,10 +11,10 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-24 border-t border-white/5">
+    <section id="certifications" className="py-24 border-t border-ide-border">
       <div className="mb-16">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Certifications</h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-on-background mb-4">Certifications</h2>
+        <div className="w-20 h-1 bg-syntax-keyword rounded-full"></div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -25,13 +25,13 @@ const Certifications = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_30px_rgba(139,92,246,0.05)] hover:border-white/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.1)] transition-all p-6 flex flex-col items-center text-center hover:-translate-y-2 duration-300"
+            className="bg-ide-surface backdrop-blur-xl border border-ide-border rounded-2xl shadow-md hover:border-syntax-variable hover:shadow-lg hover:border-syntax-variable transition-all p-6 flex flex-col items-center text-center hover:-translate-y-2 duration-300"
           >
-            <div className="bg-primary/10 p-4 rounded-full mb-4">
-              <Award className="h-8 w-8 text-primary" />
+            <div className="bg-ide-panel p-4 rounded-full mb-4">
+              <Award className="h-8 w-8 text-syntax-variable" />
             </div>
-            <h3 className="text-white font-semibold mb-2">{cert.title}</h3>
-            <p className="text-on-surface-variant text-sm">{cert.issuer}</p>
+            <h3 className="text-on-background font-semibold mb-2">{cert.title}</h3>
+            <p className="text-syntax-comment text-sm">{cert.issuer}</p>
           </motion.div>
         ))}
       </div>
