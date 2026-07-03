@@ -33,96 +33,92 @@ const Navbar = () => {
   return (
     <>
       {/* Top Horizontal Navbar */}
-      <nav className="absolute top-0 w-full z-50 py-8 bg-transparent">
-        <div className="container mx-auto px-5 lg:px-12 max-w-[1500px]">
-          <div className="flex items-center justify-between">
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-50 glass rounded-full px-6 py-4 shadow-2xl transition-all duration-300">
+        <div className="flex items-center justify-between">
+          
+          {/* Logo */}
+          <Link to="/" className="flex-shrink-0 flex items-center space-x-2 group">
+            <span className="text-[#8b5cf6] font-mono font-bold text-xl tracking-tighter group-hover:text-[#d946ef] transition-colors">&lt;/&gt;</span>
+            <span className="text-white font-display font-semibold text-lg tracking-wide">SinanTokanak</span>
+          </Link>
+
+          {/* Middle Nav Links & Search */}
+          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
             
-            {/* Logo */}
-            <div className="flex-shrink-0 flex items-center space-x-2">
-              <span className="text-[#00ffcc] font-mono font-bold text-2xl tracking-tighter">&lt;/&gt;</span>
-              <span className="text-white font-sans font-medium text-xl tracking-wide">SinanTokanak</span>
+            <Link to="/" className="relative flex flex-col items-center px-4 py-2 group">
+              <span className={`text-sm tracking-wide font-sans transition-colors ${isHome ? 'text-white font-semibold' : 'text-white/70 hover:text-white'}`}>
+                Home
+              </span>
+              {isHome && <div className="absolute inset-0 bg-white/10 rounded-full -z-10"></div>}
+            </Link>
+
+            <Link to="/blogs" className="relative flex flex-col items-center px-4 py-2 group">
+              <span className={`text-sm tracking-wide font-sans transition-colors ${!isHome ? 'text-white font-semibold' : 'text-white/70 hover:text-white'}`}>
+                Blogs
+              </span>
+              {!isHome && <div className="absolute inset-0 bg-white/10 rounded-full -z-10"></div>}
+            </Link>
+
+            {/* Search Bar */}
+            <div className="relative w-56 ml-6">
+              <input 
+                type="text"
+                placeholder="Search..."
+                className="w-full bg-white/5 border border-white/10 rounded-full py-2 pl-10 pr-4 text-white text-sm focus:outline-none focus:border-[#8b5cf6] focus:bg-white/10 transition-all placeholder-white/30 font-sans"
+              />
+              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/70" />
             </div>
+          </div>
 
-            {/* Middle Nav Links & Search */}
-            <div className="hidden lg:flex items-center space-x-12 flex-1 justify-center pl-10">
-              
-              <Link to="/" className="relative flex flex-col items-center">
-                <span className={`text-sm tracking-wider font-mono transition-colors hover:text-[#00ffcc] ${isHome ? 'text-[#00ffcc]' : 'text-white'}`}>
-                  Home
-                </span>
-                {isHome && <div className="absolute -bottom-2 w-full h-[2px] bg-[#00ffcc] rounded-full"></div>}
-              </Link>
+          {/* Social Icons */}
+          <div className="hidden lg:flex items-center space-x-6 text-white/70">
+            <a href="#" className="hover:text-[#d946ef] transition-transform hover:scale-110">
+              <InstagramIcon />
+            </a>
+            <a href="#" className="hover:text-[#8b5cf6] transition-transform hover:scale-110">
+              <DiscordIcon />
+            </a>
+            <a href="#" className="hover:text-white transition-transform hover:scale-110">
+              <GithubIcon />
+            </a>
+          </div>
 
-              <Link to="/blogs" className="relative flex flex-col items-center">
-                <span className={`text-sm tracking-wider font-mono transition-colors hover:text-[#00ffcc] ${!isHome ? 'text-[#00ffcc]' : 'text-white'}`}>
-                  Blogs
-                </span>
-                {!isHome && <div className="absolute -bottom-2 w-full h-[2px] bg-[#00ffcc] rounded-full"></div>}
-              </Link>
-
-              {/* Search Bar */}
-              <div className="relative w-48">
-                <input 
-                  type="text" 
-                  className="w-full bg-white rounded-full py-1.5 pl-4 pr-8 text-black text-xs focus:outline-none focus:ring-2 focus:ring-[#00ffcc]"
-                />
-                <Search size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-800" />
-              </div>
-            </div>
-
-            {/* Social Icons with Text */}
-            <div className="hidden lg:flex items-center space-x-8 text-white/90">
-              <a href="#" className="flex items-center space-x-2 hover:text-[#00ffcc] transition-colors text-xs font-mono">
-                <InstagramIcon />
-                <span>Instagram</span>
-              </a>
-              <a href="#" className="flex items-center space-x-2 hover:text-[#00ffcc] transition-colors text-xs font-mono text-[#00ffcc]">
-                <DiscordIcon />
-                <span>Discord</span>
-              </a>
-              <a href="#" className="flex items-center space-x-2 hover:text-[#00ffcc] transition-colors text-xs font-mono">
-                <GithubIcon />
-                <span>Github</span>
-              </a>
-            </div>
-
-            <div className="lg:hidden flex items-center">
-              <button onClick={() => setIsOpen(!isOpen)} className="text-white hover:text-[#00ffcc]">
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
+          <div className="lg:hidden flex items-center">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-white/70 hover:text-white transition-colors">
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
       </nav>
 
       {/* Floating Vertical Sidebar (Home only) */}
       {isHome && (
-        <nav className="fixed left-0 lg:left-8 top-auto bottom-6 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-14 z-50 flex lg:flex-col justify-center items-center px-6 lg:px-0 pointer-events-none">
-          <div className="bg-[#1a1c23]/80 border border-white/20 rounded-[2rem] flex lg:flex-col items-center justify-between lg:justify-center space-x-6 lg:space-x-0 lg:space-y-6 p-4 lg:py-6 w-full max-w-md lg:max-w-none shadow-2xl pointer-events-auto">
+        <nav className="fixed left-0 lg:left-8 top-auto bottom-6 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-16 z-50 flex lg:flex-col justify-center items-center px-6 lg:px-0 pointer-events-none">
+          <div className="glass-card rounded-[2rem] flex lg:flex-col items-center justify-between lg:justify-center space-x-6 lg:space-x-0 lg:space-y-8 p-4 lg:py-8 w-full max-w-md lg:max-w-none pointer-events-auto">
             
             {/* Active Top Icon */}
-            <a href="#home" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-[#00ffcc] transition-colors">
+            <a href="#home" className="w-10 h-10 bg-gradient-to-br from-[#8b5cf6] to-[#d946ef] rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-transform hover:scale-110">
               <Command size={18} />
             </a>
             
-            <a href="#about" className="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-[#00ffcc] transition-colors">
-              <User size={18} />
+            <a href="#about" className="text-white/70 hover:text-white transition-all hover:scale-110">
+              <User size={20} />
             </a>
             
-            <a href="#projects" className="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-[#00ffcc] transition-colors">
-              <Code size={18} />
+            <a href="#projects" className="text-white/70 hover:text-white transition-all hover:scale-110">
+              <Code size={20} />
             </a>
 
-            <a href="#blog" className="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-[#00ffcc] transition-colors">
-              <MessageSquare size={18} />
+            <a href="#blog" className="text-white/70 hover:text-white transition-all hover:scale-110">
+              <MessageSquare size={20} />
             </a>
 
-            <a href="#notes" className="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-[#00ffcc] transition-colors">
-              <Edit3 size={18} />
+            <a href="#notes" className="text-white/70 hover:text-white transition-all hover:scale-110">
+              <Edit3 size={20} />
             </a>
 
-            <a href="#contact" className="w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-[#00ffcc] transition-colors">
-              <Mail size={18} />
+            <a href="#contact" className="text-white/70 hover:text-white transition-all hover:scale-110">
+              <Mail size={20} />
             </a>
 
           </div>

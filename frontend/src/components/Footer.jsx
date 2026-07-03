@@ -18,32 +18,43 @@ const LinkedinIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="bg-background border-t border-white/5 py-12">
-      <div className="container mx-auto px-5 md:px-20 max-w-[1280px]">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <a href="#" className="font-mono font-bold text-2xl text-primary tracking-wide">
-              &lt;C/&gt; <span className="font-sans text-white font-medium">Nuruzzaman</span>
+    <footer className="bg-[#050505] border-t border-white/5 py-16 relative overflow-hidden font-sans">
+      
+      {/* Background Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-t from-[#8b5cf6]/5 to-transparent blur-[100px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-5 md:px-20 max-w-[1200px] relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
+          <div className="mb-10 md:mb-0 text-center md:text-left flex flex-col items-center md:items-start">
+            <a href="#" className="font-display font-extrabold text-2xl tracking-tight flex items-center space-x-2 group">
+              <span className="text-white/70 group-hover:text-white transition-colors">&lt;</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4]">NZ</span>
+              <span className="text-white/70 group-hover:text-white transition-colors">/&gt;</span>
             </a>
-            <p className="text-on-surface-variant text-sm mt-2">Building digital products with MERN & AI.</p>
+            <p className="text-white/70 text-sm md:text-base mt-4 max-w-xs leading-relaxed">
+              Crafting premium digital experiences through motion, depth, and clean architecture.
+            </p>
           </div>
           
-          <div className="flex space-x-6">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary transition-colors">
+          <div className="flex space-x-8 mt-4 md:mt-0">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#06b6d4] hover:scale-110 transition-all duration-300">
               <GithubIcon />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary transition-colors">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#8b5cf6] hover:scale-110 transition-all duration-300">
               <LinkedinIcon />
             </a>
-            <a href="mailto:hello@example.com" className="text-on-surface-variant hover:text-primary transition-colors">
+            <a href="mailto:hello@example.com" className="text-white/70 hover:text-[#d946ef] hover:scale-110 transition-all duration-300">
               <Mail className="h-6 w-6" />
             </a>
           </div>
         </div>
         
-        <div className="border-t border-white/5 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-on-surface-variant">
+        <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-medium text-white/70">
           <p>&copy; {new Date().getFullYear()} Nuruzzaman. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Designed with a developer aesthetic.</p>
+          <div className="flex items-center space-x-2 mt-4 md:mt-0">
+            <span>Built for the future.</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4]"></span>
+          </div>
         </div>
       </div>
     </footer>

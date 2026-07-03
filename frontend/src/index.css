@@ -1,47 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #1f2229;
-  --color-surface: #252830;
-  --color-surface-dim: #1f2229;
-  --color-surface-bright: #2d313a;
-  --color-surface-variant: #252830;
-  --color-primary: #00ffcc;
-  --color-on-primary: #003329;
-  --color-secondary: #00ccaa;
-  --color-on-secondary: #00221c;
-  --color-tertiary: #4cd7f6;
-  --color-on-tertiary: #003640;
-  --color-on-surface: #e7e0ed;
-  --color-on-surface-variant: #a0a5b0;
-  --color-outline: #464a53;
+  --color-background: #050505;
+  --color-surface: #0a0a0a;
+  --color-surface-dim: #050505;
+  --color-surface-bright: #121212;
+  --color-surface-variant: #0a0a0a;
+  
+  --color-primary: #8b5cf6;
+  --color-secondary: #06b6d4;
+  --color-accent: #d946ef;
+  
+  --color-on-background: #f8fafc;
+  --color-on-surface: #e2e8f0;
+  --color-on-surface-variant: #94a3b8;
+  --color-outline: #1e293b;
 
   --font-sans: "Inter", sans-serif;
-  --font-display: "Montserrat", sans-serif;
-  --font-mono: "Fira Code", "JetBrains Mono", monospace;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
   body {
     background-color: var(--color-background);
-    color: var(--color-on-surface);
+    color: var(--color-on-background);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    background-image: radial-gradient(circle at center, rgba(0,255,204,0.03) 0%, transparent 70%);
   }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-background);
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-surface-bright);
+    background: var(--color-outline);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .glass-card {
+    @apply bg-[#0a0a0a]/90 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)];
+  }
+  @supports not (backdrop-filter: blur(1px)) {
+    .glass-card {
+      @apply bg-[#0a0a0a];
+    }
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#8b5cf6] via-[#d946ef] to-[#06b6d4];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

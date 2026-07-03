@@ -1,95 +1,99 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const springAnim = {
+  type: "spring",
+  stiffness: 100,
+  damping: 15
+};
+
 const About = () => {
   return (
-    <section id="about" className="py-24 relative bg-[#13151a] overflow-hidden font-mono">
+    <section id="about" className="py-32 relative bg-[#050505] overflow-hidden font-sans">
       
-      {/* Topographic Lines Background Pattern */}
+      {/* Topographic Lines Background Pattern - Subtle Violet */}
       <div 
-        className="absolute inset-0 opacity-[0.15] pointer-events-none" 
+        className="absolute inset-0 opacity-[0.07] pointer-events-none" 
         style={{ 
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q 50 150, 100 100 T 200 100' fill='none' stroke='%2300ffcc' stroke-width='0.5'/%3E%3Cpath d='M0 50 Q 50 100, 100 50 T 200 50' fill='none' stroke='%2300ffcc' stroke-width='0.5'/%3E%3Cpath d='M0 150 Q 50 200, 100 150 T 200 150' fill='none' stroke='%2300ffcc' stroke-width='0.5'/%3E%3C/svg%3E")`, 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q 50 150, 100 100 T 200 100' fill='none' stroke='%238b5cf6' stroke-width='0.5'/%3E%3Cpath d='M0 50 Q 50 100, 100 50 T 200 50' fill='none' stroke='%238b5cf6' stroke-width='0.5'/%3E%3Cpath d='M0 150 Q 50 200, 100 150 T 200 150' fill='none' stroke='%238b5cf6' stroke-width='0.5'/%3E%3C/svg%3E")`, 
           backgroundSize: '200px 200px',
           backgroundRepeat: 'repeat'
         }}
       ></div>
 
-      <div className="container mx-auto px-5 lg:px-20 max-w-[1200px] relative z-10 flex flex-col items-center">
+      <div className="container mx-auto px-5 lg:px-20 max-w-[1400px] relative z-10 flex flex-col items-center">
         
-        {/* Top Divider with 0 */}
-        <div className="flex flex-col items-center mb-16">
-          <div className="text-3xl font-sans text-[#00ffcc] font-bold mb-2">0</div>
-          <div className="w-[2px] h-12 border-l-2 border-dashed border-white/40"></div>
+        {/* Top Divider */}
+        <div className="flex flex-col items-center mb-20">
+          <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-white/20 to-[#8b5cf6]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#8b5cf6] shadow-[0_0_15px_rgba(139,92,246,0.6)] mt-2"></div>
         </div>
 
         {/* Title Section */}
-        <div className="w-full flex justify-start mb-16">
+        <div className="w-full flex justify-start mb-12">
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center px-10 py-3 bg-[#0a0b0e] border-2 border-[#00ffcc] rounded-[1.5rem] shadow-[0_0_20px_rgba(0,255,204,0.2)]"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={springAnim}
+            className="inline-flex items-center px-10 py-4 glass-card rounded-full"
           >
-            <h2 className="text-3xl font-bold text-white tracking-widest font-sans">About Me</h2>
+            <h2 className="text-3xl font-extrabold text-white tracking-wider font-display uppercase">About Me</h2>
           </motion.div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
           
-          {/* Terminal Window */}
+          {/* Glass Text Box */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ ...springAnim, delay: 0.2 }}
             className="lg:col-span-7"
           >
-            <div className="bg-[#1a1c23] rounded-[2rem] p-10 shadow-2xl relative">
+            <div className="glass-card rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group">
+              {/* Subtle hover gradient inside */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#8b5cf6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              <div className="text-white/80 leading-relaxed text-sm md:text-base font-mono">
-                <div className="text-white/40 text-xs mb-4 tracking-widest">&lt;p&gt;</div>
-                <h3 className="text-[#00ffcc] text-3xl font-bold mb-6 font-sans">Hello!</h3>
-                <p className="mb-6 font-sans text-white/90">
-                  I'm Nuruzzaman and I specialize in web development that utilizes <span className="text-[#00ffcc] font-bold font-mono">HTML, CSS, JS,</span> and <span className="text-[#00ffcc] font-bold font-mono">REACT</span>.
+              <div className="relative z-10 text-white/80 leading-relaxed text-base md:text-lg font-sans space-y-6">
+                <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] text-4xl font-display font-bold mb-8">Hello!</h3>
+                <p className="text-white/70">
+                  I'm Nuruzzaman and I specialize in modern web development utilizing <span className="text-white font-semibold font-display tracking-wide">React, Next.js,</span> and <span className="text-white font-semibold font-display tracking-wide">Tailwind CSS</span>.
                 </p>
-                <p className="mb-6 font-sans text-white/90">
-                  I am a highly motivated individual and eternal optimist dedicated to coding clean, efficient and user-friendly web experiences.
+                <p className="text-white/70">
+                  I am a highly motivated individual and eternal optimist dedicated to coding clean, efficient and user-friendly web experiences. I focus heavily on pixel-perfect implementations, micro-interactions, and robust scalable architecture.
                 </p>
-                <p className="mb-6 font-sans text-white/90">
-                  I like to keep perspective and build systems challenged to that I see the world through.
+                <p className="text-white/70">
+                  I like to keep perspective and build systems challenged to that I see the world through, always staying ahead of modern UI/UX trends.
                 </p>
-                <div className="text-white/40 text-xs mt-4 tracking-widest">&lt;/p&gt;</div>
               </div>
             </div>
           </motion.div>
 
           {/* Right Side Image */}
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ ...springAnim, delay: 0.4 }}
             className="lg:col-span-5 flex justify-center relative mt-10 lg:mt-0"
           >
-            <div className="relative w-full max-w-[400px]">
+            <div className="relative w-full max-w-[450px]">
               
-              {/* Image Container with Right/Bottom Cyan border */}
-              <div 
-                className="relative bg-[#252830] rounded-[2rem] overflow-hidden aspect-square z-10 shadow-2xl"
-                style={{
-                  borderRight: '4px solid #00ffcc',
-                  borderBottom: '4px solid #00ffcc',
-                  boxShadow: '10px 10px 30px rgba(0,255,204,0.15)'
-                }}
-              >
-                {/* Fallback image if real asset is missing */}
-                <img 
-                  src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800" 
-                  alt="Workspace" 
-                  className="w-full h-full object-cover"
-                />
+              {/* Image Container with Glow */}
+              <div className="relative rounded-[2.5rem] p-1 bg-gradient-to-br from-[#8b5cf6]/50 via-white/10 to-[#06b6d4]/50 shadow-[0_20px_50px_rgba(139,92,246,0.15)] group hover:shadow-[0_20px_60px_rgba(139,92,246,0.3)] transition-shadow duration-500">
+                <div className="relative rounded-[2.3rem] overflow-hidden aspect-[4/5] bg-[#0a0a0a]">
+                  <img 
+                    src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800" 
+                    alt="Workspace" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-80 group-hover:opacity-100"
+                  />
+                  {/* Glass overlay on bottom edge */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none"></div>
+                </div>
               </div>
+
             </div>
           </motion.div>
 
