@@ -1,103 +1,123 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const springAnim = {
-  type: "spring",
-  stiffness: 100,
-  damping: 15
-};
+import { FileJson, Copy, Check } from 'lucide-react';
 
 const About = () => {
+  const [copied, setCopied] = React.useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("nuruzzaman@example.com"); // Replace with actual email
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section id="about" className="py-32 relative bg-[#050505] overflow-hidden font-sans">
+    <section id="about" className="py-24 relative bg-[#0d1117] overflow-hidden font-mono">
       
-      {/* Topographic Lines Background Pattern - Subtle Violet */}
-      <div 
-        className="absolute inset-0 opacity-[0.07] pointer-events-none" 
-        style={{ 
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q 50 150, 100 100 T 200 100' fill='none' stroke='%238b5cf6' stroke-width='0.5'/%3E%3Cpath d='M0 50 Q 50 100, 100 50 T 200 50' fill='none' stroke='%238b5cf6' stroke-width='0.5'/%3E%3Cpath d='M0 150 Q 50 200, 100 150 T 200 150' fill='none' stroke='%238b5cf6' stroke-width='0.5'/%3E%3C/svg%3E")`, 
-          backgroundSize: '200px 200px',
-          backgroundRepeat: 'repeat'
-        }}
-      ></div>
-
-      <div className="container mx-auto px-5 lg:px-20 max-w-[1400px] relative z-10 flex flex-col items-center">
+      <div className="container mx-auto px-5 lg:px-20 max-w-[1200px] relative z-10 flex flex-col items-center">
         
-        {/* Top Divider */}
-        <div className="flex flex-col items-center mb-20">
-          <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-white/20 to-[#8b5cf6]"></div>
-          <div className="w-3 h-3 rounded-full bg-[#8b5cf6] shadow-[0_0_15px_rgba(139,92,246,0.6)] mt-2"></div>
+        {/* Section Header */}
+        <div className="w-full mb-12 flex items-center space-x-4">
+          <span className="text-[#a855f7] font-bold text-xl">const</span>
+          <h2 className="text-3xl font-bold text-[#f0f6fc]">AboutMe</h2>
+          <span className="text-[#c9d1d9] text-3xl">=</span>
+          <span className="text-[#ffbd2e] text-3xl">&#123;</span>
         </div>
 
-        {/* Title Section */}
-        <div className="w-full flex justify-start mb-12">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={springAnim}
-            className="inline-flex items-center px-10 py-4 glass-card rounded-full"
-          >
-            <h2 className="text-3xl font-extrabold text-white tracking-wider font-display uppercase">About Me</h2>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
           
-          {/* Glass Text Box */}
+          {/* Left Column: Code Bio */}
           <motion.div 
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ ...springAnim, delay: 0.2 }}
-            className="lg:col-span-7"
+            viewport={{ once: true }}
+            className="lg:col-span-8"
           >
-            <div className="glass-card rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group">
-              {/* Subtle hover gradient inside */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#8b5cf6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="ide-window w-full h-full text-sm md:text-base leading-relaxed">
               
-              <div className="relative z-10 text-white/80 leading-relaxed text-base md:text-lg font-sans space-y-6">
-                <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] text-4xl font-display font-bold mb-8">Hello!</h3>
-                <p className="text-white/70">
-                  I'm Nuruzzaman, based in <span className="text-white font-semibold font-display tracking-wide">Assam, India</span>. I am a passionate MERN Stack Developer with a strong interest in integrating <span className="text-white font-semibold font-display tracking-wide">Generative AI</span> to create smarter, highly scalable web applications.
-                </p>
-                <p className="text-white/70">
-                  My academic foundation includes a Master of Science in Information Technology (MSc IT) from <span className="text-white font-semibold font-display tracking-wide">Gauhati University</span> and a BSc IT from B. Borooah College. As a fresher, I have already built 10+ practical projects gaining hands-on experience in full-stack architecture.
-                </p>
-                <p className="text-white/70">
-                  I am currently seeking a role as a <span className="text-[#06b6d4] font-semibold font-display tracking-wide">Software Developer / MERN Stack Developer</span> where I can contribute, learn from real-world challenges, and grow as an engineer.
-                </p>
+              <div className="ide-header justify-between">
+                <div className="flex items-center text-[#8b949e]">
+                  <FileJson size={16} className="mr-2 text-[#f2cc60]" />
+                  <span>profile.json</span>
+                </div>
+                <button onClick={handleCopy} className="text-[#8b949e] hover:text-[#c9d1d9] transition-colors" title="Copy Contact Info">
+                  {copied ? <Check size={16} className="text-[#7ee787]" /> : <Copy size={16} />}
+                </button>
+              </div>
+
+              <div className="p-6 flex">
+                {/* Line Numbers */}
+                <div className="hidden sm:flex flex-col text-[#8b949e] pr-6 select-none text-right border-r border-[#30363d] mr-6">
+                  {Array.from({length: 18}).map((_, i) => <span key={i}>{i+1}</span>)}
+                </div>
+
+                {/* Code Content */}
+                <div className="flex-1 overflow-x-auto">
+                  <div className="text-[#c9d1d9]">&#123;</div>
+                  
+                  <div className="pl-4 md:pl-8">
+                    <div>
+                      <span className="text-[#79c0ff]">"name"</span><span className="text-[#c9d1d9]">: </span>
+                      <span className="text-[#a5d6ff]">"Nuruzzaman"</span><span className="text-[#c9d1d9]">,</span>
+                    </div>
+                    
+                    <div>
+                      <span className="text-[#79c0ff]">"based_in"</span><span className="text-[#c9d1d9]">: </span>
+                      <span className="text-[#a5d6ff]">"Assam, India"</span><span className="text-[#c9d1d9]">,</span>
+                    </div>
+
+                    <div>
+                      <span className="text-[#79c0ff]">"role"</span><span className="text-[#c9d1d9]">: </span>
+                      <span className="text-[#a5d6ff]">"Software Developer / MERN Stack"</span><span className="text-[#c9d1d9]">,</span>
+                    </div>
+
+                    <div className="mt-2">
+                      <span className="text-[#79c0ff]">"education"</span><span className="text-[#c9d1d9]">: [</span>
+                    </div>
+                    <div className="pl-4 md:pl-8">
+                      <div><span className="text-[#a5d6ff]">"MSc IT @ Gauhati University"</span><span className="text-[#c9d1d9]">,</span></div>
+                      <div><span className="text-[#a5d6ff]">"BSc IT @ B. Borooah College"</span></div>
+                    </div>
+                    <div><span className="text-[#c9d1d9]">],</span></div>
+
+                    <div className="mt-2">
+                      <span className="text-[#79c0ff]">"bio"</span><span className="text-[#c9d1d9]">: </span>
+                      <span className="text-[#a5d6ff]">"I am a passionate MERN Stack Developer with a strong interest in integrating Generative AI to create smarter, highly scalable web applications. As a fresher, I have built 10+ practical projects to strengthen my development skills. I am currently seeking a role where I can contribute, learn from real-world challenges, and grow as an engineer."</span>
+                    </div>
+                  </div>
+
+                  <div className="text-[#c9d1d9]">&#125;</div>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Side Image */}
+          {/* Right Column: Image */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ ...springAnim, delay: 0.4 }}
-            className="lg:col-span-5 flex justify-center relative mt-10 lg:mt-0"
+            viewport={{ once: true }}
+            className="lg:col-span-4 flex items-center justify-center"
           >
-            <div className="relative w-full max-w-[450px]">
-              
-              {/* Image Container with Glow */}
-              <div className="relative rounded-[2.5rem] p-1 bg-gradient-to-br from-[#8b5cf6]/50 via-white/10 to-[#06b6d4]/50 shadow-[0_20px_50px_rgba(139,92,246,0.15)] group hover:shadow-[0_20px_60px_rgba(139,92,246,0.3)] transition-shadow duration-500">
-                <div className="relative rounded-[2.3rem] overflow-hidden aspect-[4/5] bg-[#0a0a0a]">
-                  <img 
-                    src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800" 
-                    alt="Workspace" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-80 group-hover:opacity-100"
-                  />
-                  {/* Glass overlay on bottom edge */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none"></div>
-                </div>
-              </div>
-
+            <div className="relative w-full max-w-[350px] aspect-[3/4] ide-window overflow-hidden group">
+              <img 
+                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800" 
+                alt="Workspace" 
+                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 filter grayscale group-hover:grayscale-0"
+              />
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#79c0ff]/30 transition-colors duration-500 pointer-events-none"></div>
+              {/* Overlay lines to look like a terminal monitor */}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)' }}></div>
             </div>
           </motion.div>
 
         </div>
+        
+        {/* Section Footer */}
+        <div className="w-full mt-4 flex justify-end">
+          <span className="text-[#ffbd2e] text-3xl">&#125;</span><span className="text-[#c9d1d9] text-3xl">;</span>
+        </div>
+
       </div>
     </section>
   );
