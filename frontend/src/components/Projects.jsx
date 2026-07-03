@@ -132,9 +132,10 @@ const Projects = () => {
                 <h3 className="text-lg font-bold text-[#c9d1d9] mb-2 group-hover:text-[#79c0ff] transition-colors">
                   {project.title}
                 </h3>
-                
-                <div className="text-[#8b949e] text-xs leading-relaxed mb-6 flex-1 italic">
-                  /* {project.description} */
+                <div className="mb-4">
+                  <p className="text-[#8b949e] font-sans leading-relaxed text-sm h-16 overflow-hidden">
+                    {project.description}
+                  </p>
                 </div>
                 
                 <div className="pt-4 border-t border-[#30363d] flex flex-col gap-4 mt-auto">

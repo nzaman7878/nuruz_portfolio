@@ -59,7 +59,7 @@ const Hero = () => {
                   <span className="text-[#7ee787] mr-3 shrink-0">nuruzzaman@system:~$</span> 
                   <span className="text-[#c9d1d9]">cat mission.txt</span>
                 </div>
-                <div className="text-[#8b949e] mb-6 max-w-lg leading-loose border-l-2 border-[#30363d] pl-4">
+                <div className="text-[#c9d1d9] font-sans text-lg mb-6 max-w-lg leading-relaxed border-l-2 border-[#79c0ff] pl-4">
                   I engineer scalable web applications and integrate AI-powered features to create smarter user experiences.
                 </div>
               </motion.div>
@@ -80,14 +80,14 @@ const Hero = () => {
             transition={{ delay: 3.0 }}
             className="flex flex-col sm:flex-row items-center gap-4"
           >
-            <a href="#contact" className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-[#2ea043] text-white px-6 py-3 rounded-md font-sans font-medium hover:bg-[#2c974b] transition-colors border border-[rgba(240,246,252,0.1)] group">
-              <span className="font-mono text-sm">./execute_contact.sh</span>
-              <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <a href="#contact" className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white text-black px-6 py-3 rounded-md font-sans font-bold hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] group">
+              <span>Contact Me</span>
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             
-            <a href="/resume.pdf" download className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-[#21262d] text-[#c9d1d9] px-6 py-3 rounded-md font-sans font-medium hover:bg-[#30363d] transition-colors border border-[#30363d]">
-              <span className="font-mono text-sm">download_cv.pdf</span>
-              <Download size={16} className="text-[#8b949e]" />
+            <a href="/resume.pdf" download className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-[#161b22] text-[#c9d1d9] px-6 py-3 rounded-md font-sans font-semibold hover:bg-[#30363d] transition-colors border border-[#30363d] hover:border-[#79c0ff]/50 hover:text-white">
+              <span>Download Resume</span>
+              <Download size={18} />
             </a>
           </motion.div>
 

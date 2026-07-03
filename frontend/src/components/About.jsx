@@ -82,7 +82,9 @@ const About = () => {
 
                     <div className="mt-2">
                       <span className="text-[#79c0ff]">"bio"</span><span className="text-[#c9d1d9]">: </span>
-                      <span className="text-[#a5d6ff]">"I am a passionate MERN Stack Developer with a strong interest in integrating Generative AI to create smarter, highly scalable web applications. As a fresher, I have built 10+ practical projects to strengthen my development skills. I am currently seeking a role where I can contribute, learn from real-world challenges, and grow as an engineer."</span>
+                      <span className="text-[#a5d6ff] font-sans text-base leading-relaxed inline-block mt-1 border-l-2 border-[#30363d] pl-3 py-1 bg-[#161b22]/50 rounded-r">
+                        "I am a passionate MERN Stack Developer with a strong interest in integrating Generative AI to create smarter, highly scalable web applications. As a fresher, I have built 10+ practical projects to strengthen my development skills. I am currently seeking a role where I can contribute, learn from real-world challenges, and grow as an engineer."
+                      </span>
                     </div>
                   </div>
 
