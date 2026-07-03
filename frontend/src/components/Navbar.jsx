@@ -31,9 +31,9 @@ const Navbar = () => {
               <Code size={14} className={isHome ? 'text-[#79c0ff]' : 'text-[#8b949e]'} />
               <span>index.jsx</span>
             </Link>
-            <Link to="/blogs" className={`px-4 py-1 flex items-center space-x-2 border-t-2 transition-colors ${!isHome ? 'border-[#79c0ff] bg-[#0d1117] text-[#c9d1d9]' : 'border-transparent text-[#8b949e] hover:bg-[#21262d]'}`}>
+            <Link to="/projects" className={`px-4 py-1 flex items-center space-x-2 border-t-2 transition-colors ${!isHome ? 'border-[#79c0ff] bg-[#0d1117] text-[#c9d1d9]' : 'border-transparent text-[#8b949e] hover:bg-[#21262d]'}`}>
               <Folder size={14} className={!isHome ? 'text-[#79c0ff]' : 'text-[#8b949e]'} />
-              <span>blogs/</span>
+              <span>projects/</span>
             </Link>
           </div>
 

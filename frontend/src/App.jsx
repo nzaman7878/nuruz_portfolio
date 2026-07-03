@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Blogs from './pages/Blogs';
-import BlogDetail from './pages/BlogDetail';
+import ProjectsPage from './pages/ProjectsPage';
 
 function App() {
   return (
@@ -12,8 +11,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
       </div>
     </Router>
