@@ -59,13 +59,13 @@ const About = () => {
               <div className="relative z-10 text-white/80 leading-relaxed text-base md:text-lg font-sans space-y-6">
                 <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] text-4xl font-display font-bold mb-8">Hello!</h3>
                 <p className="text-white/70">
-                  I'm Nuruzzaman and I specialize in modern web development utilizing <span className="text-white font-semibold font-display tracking-wide">React, Next.js,</span> and <span className="text-white font-semibold font-display tracking-wide">Tailwind CSS</span>.
+                  I'm Nuruzzaman, based in <span className="text-white font-semibold font-display tracking-wide">Assam, India</span>. I am a passionate MERN Stack Developer with a strong interest in integrating <span className="text-white font-semibold font-display tracking-wide">Generative AI</span> to create smarter, highly scalable web applications.
                 </p>
                 <p className="text-white/70">
-                  I am a highly motivated individual and eternal optimist dedicated to coding clean, efficient and user-friendly web experiences. I focus heavily on pixel-perfect implementations, micro-interactions, and robust scalable architecture.
+                  My academic foundation includes a Master of Science in Information Technology (MSc IT) from <span className="text-white font-semibold font-display tracking-wide">Gauhati University</span> and a BSc IT from B. Borooah College. As a fresher, I have already built 10+ practical projects gaining hands-on experience in full-stack architecture.
                 </p>
                 <p className="text-white/70">
-                  I like to keep perspective and build systems challenged to that I see the world through, always staying ahead of modern UI/UX trends.
+                  I am currently seeking a role as a <span className="text-[#06b6d4] font-semibold font-display tracking-wide">Software Developer / MERN Stack Developer</span> where I can contribute, learn from real-world challenges, and grow as an engineer.
                 </p>
               </div>
             </div>
